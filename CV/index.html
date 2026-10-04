@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hurelsuh Odgerel – Software Engineer</title>
+<meta name="description" content="Hurelsuh Odgerel, software engineer from Mongolia. Python, Flutter, C/C++ and a love of cars.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🛠️%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hud">
+  <a class="hud-name" href="#start">Hurelsuh Odgerel</a>
+  <div class="hud-info"><span id="stageName" data-dyn>Garage</span><span><b id="km">0</b> km</span></div>
+  <div class="hud-bar"><i id="bar"></i></div>
+</header>
+<div class="road" aria-hidden="true"><div class="car"></div></div>
+<div class="toast" id="toast" data-dyn role="status" aria-live="polite"></div>
+
+<main>
+<!-- STAGE 0 -->
+<section id="start" class="stage hero" data-stage="Garage" data-xp="0">
+  <div class="hero-text">
+    <h1>Hurelsuh<br>Odgerel</h1>
+    <p class="lead">Software Engineer. I build apps and backends, and I keep one hand on an engine.</p>
+    <button class="btn" id="startBtn">Start engine</button>
+    <p class="hint" id="hint" data-dyn>Press the button to start.</p>
+  </div>
+  <figure class="tach">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Tachometer">
+      <g id="ticks"></g>
+      <g id="needle"><line x1="100" y1="100" x2="100" y2="38" /><circle cx="100" cy="100" r="7"/></g>
+    </svg>
+    <figcaption><b id="rpm">0</b> rpm</figcaption>
+  </figure>
+</section>
+
+<!-- STAGE 1 -->
+<section id="profile" class="stage" data-stage="About me" data-xp="100">
+  <h2>About me</h2>
+  <div class="card profile">
+    <dl>
+      <div><dt>Role</dt><dd>Software engineer</dd></div>
+      <div><dt>Also into</dt><dd>Car and electronics tinkerer</dd></div>
+      <div><dt>From</dt><dd>Erdenet, Mongolia</dd></div>
+      <div><dt>Based in</dt><dd>Ulaanbaatar, Mongolia</dd></div>
+      <div><dt>Education</dt><dd>BSc Software Engineering, National University of Mongolia</dd></div>
+      <div><dt>Languages</dt><dd>Mongolian (native), English (IELTS 7.5 in mock tests)</dd></div>
+    </dl>
+    <p>I got my first PC in 2019 and taught myself Python from zero. Since then I've worked across backend, mobile and hardware. Computers became the career. Cars are still the passion I never put down.</p>
+  </div>
+</section>
+
+<!-- STAGE 2 -->
+<section id="skills" class="stage" data-stage="Skills" data-xp="100">
+  <h2>Skills</h2>
+  <p class="sub">Skills based from 1 to 10. Select a skill to read more.</p>
+  <div class="filters" id="filters" role="group" aria-label="Filter skills"></div>
+  <div class="skills" id="skillList"></div>
+  <p class="info" id="skillInfo" data-dyn aria-live="polite">Select a skill.</p>
+
+  <h3>Also work with</h3>
+  <div class="chips" id="unlocked"></div>
+
+  <h3>Learning next</h3>
+  <div class="locks">
+    <div class="lock"><b>Swift and iOS</b><span>Planned</span><p>Waiting for a MacBook and an Apple developer account.</p></div>
+    <div class="lock prog"><b>Linux distros</b><span>Learning</span><p>Setting foot into Linux and trying different distributions.</p></div>
+    <div class="lock prog"><b>Electrical engineering</b><span>Learning</span><p>Self-taught with ESP32 and Arduino boards.</p></div>
+  </div>
+</section>
+
+<!-- STAGE 3 -->
+<section id="quests" class="stage" data-stage="Projects" data-xp="100">
+  <h2>Projects</h2>
+  <article class="quest main">
+    <button class="q-head" aria-expanded="false">
+      <span class="tag">Main project</span>
+      <h3>Vehicle Maintenance Tracking System</h3>
+      <span class="stack">Bachelor thesis · Flutter · Python · FastAPI · Gemini</span>
+    </button>
+    <div class="q-body">
+      <p>Every car gets a unique ID, and workshops record verified services on it, so owners always know what was done and what needs fixing.</p>
+      <ul>
+        <li>Reminders for oil, tires and other parts, based on the mileage of the last workshop service.</li>
+        <li>Photo scan of a broken part: it finds the OEM number, estimates the price and lists workshops that stock it.</li>
+        <li>The image goes to Gemini Flash as base64 with detailed custom instructions, and comes back as structured JSON.</li>
+        <li>Flutter app and FastAPI backend, both built by me. Not on the Play Store.</li>
+      </ul>
+      <div class="shot">Add screenshots or a demo video here: put files in /assets and swap this box for an img tag.</div>
+    </div>
+  </article>
+  <article class="quest">
+    <button class="q-head" aria-expanded="false">
+      <span class="tag">Side project</span>
+      <h3>Game automation scripts</h3>
+      <span class="stack">Python</span>
+    </button>
+    <div class="q-body"><p>When a game gets repetitive and boring, I write a script to do the grinding for me.</p></div>
+  </article>
+  <article class="quest">
+    <button class="q-head" aria-expanded="false">
+      <span class="tag">Side project</span>
+      <h3>ESP32 and Arduino experiments</h3>
+      <span class="stack">C/C++ · Self-taught</span>
+    </button>
+    <div class="q-body">
+      <p>Early-stage electronics, learning on my own. Try the board:</p>
+      <div class="board">
+        <i class="led" id="led"></i>
+        <code id="code">digitalWrite(LED, LOW);</code>
+        <button class="btn small" id="ledBtn">Toggle LED</button>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- STAGE 4 -->
+<section id="log" class="stage" data-stage="Journey" data-xp="100">
+  <h2>Journey</h2>
+  <ol class="timeline">
+    <li><time>2010 – 2022</time><b>School No. 14, Erdenet</b></li>
+    <li><time>2019</time><b>First PC, started with Python</b><p>Learned from scratch.</p></li>
+    <li><time>2022 – 2026</time><b>National University of Mongolia</b><p>BSc Software Engineering</p></li>
+    <li><time>Internship</time><b>Frontend developer, Garage.mn</b><p>One month in Flutter. Built half of the worker's mobile app frontend.</p></li>
+  </ol>
+</section>
+
+<!-- STAGE 5 -->
+<section id="garage" class="stage" data-stage="Off the clock" data-xp="100">
+  <h2>Off the clock</h2>
+  <p class="sub">What I do when I'm not shipping code. Select an item.</p>
+  <div class="slots" id="slots"></div>
+  <p class="info" id="slotInfo" data-dyn aria-live="polite">Select an item.</p>
+</section>
+
+<!-- STAGE 6 -->
+<section id="finish" class="stage finish" data-stage="Contact" data-xp="100">
+  <h2>Let's talk</h2>
+  <p class="lead">Thanks for the ride. Want to build something together?</p>
+  <div class="cta">
+    <a class="btn" href="mailto:gpublic478@gmail.com">Send an email</a>
+    <button class="btn ghost" id="copyBtn">Copy address</button>
+    <button class="btn ghost" id="replay">Back to top</button>
+  </div>
+  <p class="links"><a href="https://github.com/KhurelsukhOdgerel">GitHub</a> · <a href="#">LinkedIn (dont have it yet)</a></p>
+  <!-- TODO: replace the two "#" links with your GitHub and LinkedIn URLs -->
+</section>
+</main>
+
+<button class="lang" id="lang" aria-label="Switch language">МН</button>
+<script src="script.js"></script>
+</body>
+</html>
